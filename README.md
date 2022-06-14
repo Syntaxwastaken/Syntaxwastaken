@@ -1,16 +1,34 @@
-### Hi there 👋
+```python
 
-<!--
-**Syntaxwastaken/Syntaxwastaken** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+from dataclasses import dataclass
+from typing import Tuple
 
-Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+class Meta(type):
+    def __new__(cls, name, bases, attrs):
+        new_cls = super().__new__(cls, name, bases, attrs)
+        return dataclass(unsafe_hash=True, frozen=True)(new_cls)
+
+
+class Bio(metaclass=Meta):
+    name        : str = "SyntaX ErroR"
+    im          : str = "Website Dev, Minecraft Dev, Programmer"
+
+
+class Stack(metaclass=Meta):
+    languages   : Tuple[str, ...] = ("HTML", "CSS", "JS", "C++", "Python", "React")
+    databases   : Tuple[str, ...] = ("MySQL", "Mongo", "Redis")
+    ongoing     : Tuple[str, ...] = ("TS", "Go")
+
+
+class Social(metaclass=Meta):
+    discord     : str = "sYɴᴛᴀ᙭ ΣʀʀᴏR#5679"
+    twitter     : str = "syntax_OP"
+    twitch      : str = "theinfinitypro"
+    replit      : str = "syntaxnotfound"
+
+
+class Misc(metaclass=Meta):
+    MT website  : str = "https://minetown.games"
+    MT discord  : str = "https://join.minetown.games"
+```
